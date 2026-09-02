@@ -1,56 +1,115 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Página colaborativa dos alunos do CEFET-MG.">
-    <title>Projeto GitHub | CEFET-MG</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-  <body>
-    <header class="site-header">
-      <nav class="navigation" aria-label="Navegação principal">
-        <a class="brand" href="./">CEFET<span>-MG</span></a>
-        <a class="nav-link" href="#turma">Nossa turma <span aria-hidden="true">↓</span></a>
-      </nav>
-    </header>
-    <main>
-      <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">Projeto de extensão · 2026</p>
-        <h1 id="page-title">Um espaço feito<br>por <em>todos nós.</em></h1>
-        <p class="hero-text">Esta página é da turma. Cada alteração conta uma parte da nossa história no GitHub.</p>
-        <a class="button" href="#turma">Conhecer a turma <span aria-hidden="true">↗</span></a>
-      </section>
-      <section class="class-section" id="turma" aria-labelledby="class-title">
-        <div class="section-heading">
-          <p class="eyebrow">Mural colaborativo</p>
-          <h2 id="class-title">Quem está construindo?</h2>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Curso gratuito de extensão do CEFET-MG sobre Git, GitHub, controle de versão e colaboração em projetos de software.">
+  <title>Git & GitHub 2026 | CEFET-MG</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navigation" aria-label="Navegação principal">
+      <a class="brand" href="#inicio">CEFET<span>-MG</span> <small>· Git & GitHub</small></a>
+      <div class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#curso">Curso</a>
+        <a href="#inscricao">Inscrição</a>
+        <a href="#sigaa">Criar conta no SIGAA</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="page-title">
+      <p class="eyebrow">Projeto de extensão · CEFET-MG · 2026</p>
+      <h1 id="page-title">Aprenda Git<br>e <em>GitHub</em> do zero.</h1>
+      <p class="hero-text">Curso gratuito de introdução ao controle de versão e à colaboração em projetos de software, com atividades práticas e acompanhamento da equipe do CEFET-MG Campus Divinópolis.</p>
+      <div class="hero-actions">
+        <a class="button" href="#inscricao">Quero me inscrever <span aria-hidden="true">↗</span></a>
+        <a class="text-link" href="#curso">Conhecer o curso <span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="section" id="sobre" aria-labelledby="about-title">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Sobre o projeto</p>
+          <h2 id="about-title">Git e GitHub<br>na prática.</h2>
         </div>
-        <div class="student-grid">
-          <article class="student-card card-yellow">
-            <span class="card-number">01</span>
-            <h3>Nome do aluno</h3>
-            <p>Escreva aqui uma frase sobre você, seu curso ou o que espera aprender.</p>
-            <span class="card-mark" aria-hidden="true">+</span>
-          </article>
-          <article class="student-card card-blue">
-            <span class="card-number">02</span>
-            <h3>Nome do aluno</h3>
-            <p>Escreva aqui uma frase sobre você, seu curso ou o que espera aprender.</p>
-            <span class="card-mark" aria-hidden="true">+</span>
-          </article>
-          <article class="student-card card-coral">
-            <span class="card-number">03</span>
-            <h3>Nome do aluno</h3>
-            <p>Escreva aqui uma frase sobre você, seu curso ou o que espera aprender.</p>
-            <span class="card-mark" aria-hidden="true">+</span>
-          </article>
+        <p class="section-intro">Uma formação introdutória para estudantes e interessados em tecnologia que desejam aprender a organizar versões de arquivos, trabalhar com repositórios e colaborar em projetos de software.</p>
+      </div>
+      <div class="feature-grid">
+        <article class="feature-card card-yellow"><span>01</span><h3>Controle de versão</h3><p>Entenda como registrar alterações, acompanhar o histórico e trabalhar com segurança usando Git.</p></article>
+        <article class="feature-card card-blue"><span>02</span><h3>GitHub</h3><p>Aprenda a publicar repositórios, sincronizar arquivos e utilizar a plataforma para colaboração.</p></article>
+        <article class="feature-card card-coral"><span>03</span><h3>Trabalho em equipe</h3><p>Pratique branches, pull requests e fluxos básicos de colaboração usados em projetos reais.</p></article>
+      </div>
+    </section>
+
+    <section class="section dark-section" id="curso" aria-labelledby="course-title">
+      <div class="section-heading">
+        <p class="eyebrow light-eyebrow">Conteúdo do curso</p>
+        <h2 id="course-title">O que você vai aprender?</h2>
+      </div>
+      <div class="modules">
+        <article class="module"><span class="module-number">01</span><div><p class="module-hours">12 horas</p><h3>Fundamentos do Git</h3><p>Controle de versão, instalação e configuração, repositórios locais, commits, histórico e boas práticas.</p></div></article>
+        <article class="module"><span class="module-number">02</span><div><p class="module-hours">6 horas</p><h3>GitHub e colaboração</h3><p>Conta no GitHub, repositórios remotos, sincronização, branches e introdução a pull requests.</p></div></article>
+        <article class="module"><span class="module-number">03</span><div><p class="module-hours">8 horas</p><h3>Integração com ferramentas</h3><p>Uso do Git em editores de código, Visual Studio Code, GitHub Desktop e fluxos colaborativos.</p></div></article>
+        <article class="module"><span class="module-number">04</span><div><p class="module-hours">4 horas</p><h3>Prática integradora e revisão</h3><p>Aplicação dos conteúdos em uma atividade guiada, revisão, esclarecimento de dúvidas e avaliação final.</p></div></article>
+      </div>
+    </section>
+
+    <section class="section facts-section" aria-labelledby="facts-title">
+      <div class="section-heading">
+        <p class="eyebrow">Informações rápidas</p>
+        <h2 id="facts-title">Um primeiro passo<br>para trabalhar com código em equipe.</h2>
+      </div>
+      <div class="facts-grid">
+        <article><strong>30h</strong><span>de formação</span></article>
+        <article><strong>Gratuito</strong><span>curso de extensão</span></article>
+        <article><strong>CEFET-MG</strong><span>Campus Divinópolis</span></article>
+        <article><strong>Certificado</strong><span>para concluintes que atendam aos critérios do curso</span></article>
+      </div>
+      <p class="audience-note">Voltado a estudantes do CEFET-MG e de outras instituições da região, alunos do ensino médio e técnico, graduandos e demais interessados em tecnologia e desenvolvimento de software.</p>
+    </section>
+
+    <section class="section signup-section" id="inscricao" aria-labelledby="signup-title">
+      <div>
+        <p class="eyebrow">Inscrições</p>
+        <h2 id="signup-title">Quer participar?</h2>
+        <p>As inscrições em cursos e eventos de extensão do CEFET-MG são realizadas pela área pública do SIGAA. Se ainda não possui cadastro nessa área, siga o tutorial logo abaixo antes de se inscrever.</p>
+      </div>
+      <a class="button button-large" href="https://sig.cefetmg.br/sigaa/public/extensao/loginCursosEventosExtensao.jsf" target="_blank" rel="noreferrer">Acessar inscrições no SIGAA <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="section tutorial-section" id="sigaa" aria-labelledby="sigaa-title">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Tutorial SIGAA</p>
+          <h2 id="sigaa-title">Como criar sua conta para a Extensão</h2>
         </div>
-      </section>
-    </main>
-    <footer class="site-footer">
-      <p>CEFET-MG <span aria-hidden="true">·</span> Projeto GitHub 2026</p>
-      <p>Feito em conjunto, publicado na web.</p>
-    </footer>
-  </body>
+        <p class="section-intro">Este cadastro é específico para a área pública de cursos e eventos de extensão. Se você já participou de outro curso ou evento de extensão do CEFET-MG e possui esse cadastro, pode ir direto para a inscrição.</p>
+      </div>
+
+      <div class="steps">
+        <article class="step"><span class="step-number">01</span><div><h3>Acesse a área pública do SIGAA</h3><p>Abra a página pública do SIGAA do CEFET-MG. No menu, escolha <strong>Extensão</strong> e depois <strong>Acesso à Área de Inscritos em Cursos e Eventos</strong>.</p><a class="inline-link" href="https://sig.cefetmg.br/sigaa/public/" target="_blank" rel="noreferrer">Abrir área pública do SIGAA ↗</a></div></article>
+        <article class="step"><span class="step-number">02</span><div><h3>Escolha “Ainda não possuo cadastro”</h3><p>Na tela de login da Extensão, clique nessa opção para iniciar a criação da sua conta.</p><a class="inline-link" href="https://sig.cefetmg.br/sigaa/public/extensao/loginCursosEventosExtensao.jsf" target="_blank" rel="noreferrer">Abrir tela de login ↗</a></div></article>
+        <article class="step"><span class="step-number">03</span><div><h3>Preencha o formulário</h3><p>Informe os dados solicitados, preencha todos os campos obrigatórios, defina sua senha e clique em <strong>Cadastrar</strong>.</p></div></article>
+        <article class="step"><span class="step-number">04</span><div><h3>Confirme o cadastro por e-mail</h3><p>Após o cadastro, o SIGAA enviará uma mensagem para o endereço informado. Abra o e-mail e clique no link de confirmação.</p></div></article>
+        <article class="step"><span class="step-number">05</span><div><h3>Entre na área de inscrições</h3><p>Volte à tela de acesso, entre com o e-mail e a senha cadastrados e abra o menu <strong>Cursos e Eventos Abertos</strong>.</p></div></article>
+        <article class="step"><span class="step-number">06</span><div><h3>Localize o curso e conclua a inscrição</h3><p>Encontre o curso de Git e GitHub, clique em <strong>Inscrever-se</strong>, informe sua instituição quando solicitado e confirme a inscrição.</p></div></article>
+      </div>
+
+      <aside class="help-box">
+        <div><p class="eyebrow">Material oficial</p><h3>Quer acompanhar o passo a passo completo do CEFET-MG?</h3><p>Consulte o Guia do Usuário do SIGAA — Módulo Extensão, que explica o cadastro, a inscrição e a gestão da participação.</p></div>
+        <a class="button secondary-button" href="https://www.dedc.cefetmg.br/wp-content/uploads/sites/79/guias/7/Guia-SIGAA-7.-Inscri%C3%A7%C3%A3o-Participantes.pdf" target="_blank" rel="noreferrer">Abrir guia oficial ↗</a>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p><strong>CEFET-MG</strong> · Campus Divinópolis</p>
+    <p>Projeto de Extensão Git & GitHub · 2026</p>
+  </footer>
+</body>
 </html>
