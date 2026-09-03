@@ -41,14 +41,21 @@ a {
   color: inherit;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
   margin-top: 0;
 }
 
-.site-header, main, .site-footer {
+.site-header,
+main,
+.site-footer {
   max-width: 1180px;
   margin: auto;
 }
+
+/* HEADER */
 
 .site-header {
   padding: 26px 5vw 0;
@@ -94,11 +101,16 @@ h1, h2, h3, p {
   text-decoration: none;
 }
 
-.nav-links a:hover, .nav-links a:focus-visible {
+.nav-links a:hover,
+.nav-links a:focus-visible {
   color: var(--accent);
 }
 
+/* HERO */
+
 .hero {
+  position: relative;
+  overflow: hidden;
   min-height: 78vh;
   padding: 12vh 5vw 14vh;
   display: flex;
@@ -116,6 +128,8 @@ h1, h2, h3, p {
 }
 
 h1 {
+  position: relative;
+  z-index: 2;
   max-width: 930px;
   margin-bottom: 30px;
   font-size: clamp(3.8rem, 9vw, 7.8rem);
@@ -129,6 +143,8 @@ h1 em {
 }
 
 .hero-text {
+  position: relative;
+  z-index: 2;
   max-width: 630px;
   margin-bottom: 34px;
   font-size: 1.08rem;
@@ -136,6 +152,8 @@ h1 em {
 }
 
 .hero-actions {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 28px;
@@ -154,20 +172,185 @@ h1 em {
   font-family: 'DM Mono', monospace;
   font-size: .74rem;
   text-decoration: none;
-  transition: transform .2s ease, background .2s ease, color .2s ease;
+  transition:
+    transform .2s ease,
+    background .2s ease,
+    color .2s ease;
 }
 
-.button:hover, .button:focus-visible {
+.button:hover,
+.button:focus-visible {
   background: var(--accent);
   border-color: var(--accent);
   transform: translateY(-3px);
 }
 
-.text-link, .inline-link {
+.text-link,
+.inline-link {
   font-family: 'DM Mono', monospace;
   font-size: .72rem;
   text-underline-offset: 4px;
 }
+
+/* GRAFO GIT DO HERO */
+
+.git-graph {
+  position: absolute;
+  z-index: 1;
+  right: 5vw;
+  bottom: 100px;
+  width: 570px;
+  height: 230px;
+  opacity: .8;
+  transform: scale(.9);
+  transform-origin: right bottom;
+  pointer-events: none;
+}
+
+.git-line {
+  position: absolute;
+  height: 2px;
+  background: rgba(186, 81, 62, .38);
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: draw-line .8s ease forwards;
+}
+
+.line-main-1 {
+  top: 155px;
+  left: 25px;
+  width: 110px;
+  animation-delay: .15s;
+}
+
+.line-main-2 {
+  top: 155px;
+  left: 135px;
+  width: 110px;
+  animation-delay: .45s;
+}
+
+.line-main-3 {
+  top: 155px;
+  left: 245px;
+  width: 145px;
+  animation-delay: .75s;
+}
+
+.line-top-diagonal {
+  top: 155px;
+  left: 245px;
+  width: 78px;
+  transform: rotate(-42deg) scaleX(0);
+  animation-name: draw-top-diagonal;
+  animation-delay: 1.05s;
+}
+
+.line-top-horizontal {
+  top: 103px;
+  left: 303px;
+  width: 92px;
+  animation-delay: 1.35s;
+}
+
+.line-bottom-diagonal {
+  top: 155px;
+  left: 135px;
+  width: 78px;
+  transform: rotate(42deg) scaleX(0);
+  animation-name: draw-bottom-diagonal;
+  animation-delay: .65s;
+}
+
+.line-bottom-horizontal {
+  top: 207px;
+  left: 193px;
+  width: 92px;
+  animation-delay: .95s;
+}
+
+.git-node {
+  position: absolute;
+  z-index: 2;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(186, 81, 62, .08);
+  opacity: 0;
+  transform: scale(0);
+  animation: commit-in .35s ease forwards;
+}
+
+.node-1 {
+  top: 149px;
+  left: 19px;
+  animation-delay: .1s;
+}
+
+.node-2 {
+  top: 149px;
+  left: 129px;
+  animation-delay: .4s;
+}
+
+.node-3 {
+  top: 149px;
+  left: 239px;
+  animation-delay: .7s;
+}
+
+.node-4 {
+  top: 149px;
+  left: 384px;
+  animation-delay: 1s;
+}
+
+.node-5 {
+  top: 97px;
+  left: 297px;
+  animation-delay: 1.3s;
+}
+
+.node-6 {
+  top: 97px;
+  left: 389px;
+  animation-delay: 1.6s;
+}
+
+.node-7 {
+  top: 201px;
+  left: 279px;
+  animation-delay: 1.2s;
+}
+
+@keyframes draw-line {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes draw-top-diagonal {
+  to {
+    transform: rotate(-42deg) scaleX(1);
+  }
+}
+
+@keyframes draw-bottom-diagonal {
+  to {
+    transform: rotate(42deg) scaleX(1);
+  }
+}
+
+@keyframes commit-in {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* SEÇÕES */
 
 .section {
   padding: 92px 5vw 110px;
@@ -199,6 +382,8 @@ h2 {
   font-size: 1rem;
   line-height: 1.65;
 }
+
+/* SOBRE */
 
 .feature-grid {
   display: grid;
@@ -269,19 +454,18 @@ h2 {
   background: var(--coral);
 }
 
+/* CONTEÚDO DO CURSO */
+
 .dark-section {
   color: var(--paper);
   background: var(--ink);
   border-top: 0;
 }
 
-.dark-section .section-heading {
-  margin-bottom: 24px;
-}
-
 .light-eyebrow {
   color: var(--coral);
 }
+
 .course-heading {
   display: grid;
   grid-template-columns: 1fr .75fr;
@@ -358,7 +542,7 @@ h2 {
 .course-card-top {
   display: flex;
   justify-content: space-between;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .course-number {
@@ -420,6 +604,8 @@ h2 {
   color: var(--coral);
   transform: translate(4px, -4px);
 }
+
+/* INFORMAÇÕES RÁPIDAS */
 
 .facts-editorial {
   display: grid;
@@ -497,6 +683,8 @@ h2 {
   font-size: 1rem;
   line-height: 1.6;
 }
+
+/* TUTORIAL */
 
 .tutorial-section {
   background: #faf7ef;
@@ -633,9 +821,12 @@ h2 {
   background: transparent;
 }
 
-.secondary-button:hover, .secondary-button:focus-visible {
+.secondary-button:hover,
+.secondary-button:focus-visible {
   color: var(--paper);
 }
+
+/* INSCRIÇÃO */
 
 .signup-section {
   display: grid;
@@ -657,6 +848,8 @@ h2 {
   align-self: center;
 }
 
+/* FOOTER */
+
 .site-footer {
   display: flex;
   justify-content: space-between;
@@ -672,6 +865,8 @@ h2 {
   margin-bottom: 0;
 }
 
+/* RESPONSIVO */
+
 @media (max-width: 900px) {
   .navigation {
     align-items: flex-start;
@@ -683,7 +878,8 @@ h2 {
     justify-content: flex-end;
   }
 
-  .section-heading.split, .signup-section {
+  .section-heading.split,
+  .signup-section {
     grid-template-columns: 1fr;
   }
 
@@ -699,21 +895,27 @@ h2 {
     margin-top: 48px;
   }
 
-  .facts-grid, .facts-grid-three {
-    grid-template-columns: repeat(2, 1fr);
+  .course-heading {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .facts-grid article:nth-child(2) {
-    border-right: 0;
+  .course-intro {
+    margin-left: 0;
   }
 
-  .facts-grid article:nth-child(-n+2) {
-    border-bottom: 1px solid var(--ink);
+  .course-grid {
+    grid-template-columns: 1fr;
   }
 
-  .facts-grid-three article:nth-child(3) {
-    grid-column: 1 / -1;
-    border-right: 0;
+  .course-card {
+    min-height: 280px;
+  }
+
+  .git-graph {
+    right: -115px;
+    opacity: .24;
+    transform: translateY(-50%) scale(.82);
   }
 
   .step {
@@ -728,6 +930,16 @@ h2 {
   .help-box {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+}
+
+@media (max-width: 700px) {
+  .facts-editorial {
+    grid-template-columns: 1fr;
+  }
+
+  .fact-item {
+    min-height: 170px;
   }
 }
 
@@ -758,6 +970,10 @@ h2 {
     padding-bottom: 13vh;
   }
 
+  .git-graph {
+    display: none;
+  }
+
   h1 {
     font-size: clamp(3.2rem, 17vw, 5rem);
   }
@@ -767,9 +983,15 @@ h2 {
     padding-bottom: 84px;
   }
 
-  .module {
-    grid-template-columns: 52px 1fr;
-    gap: 15px;
+  .course-card {
+    min-height: 300px;
+    padding: 22px;
+  }
+
+  .course-card-content {
+    right: 22px;
+    bottom: 24px;
+    left: 22px;
   }
 
   .step-copy {
@@ -793,38 +1015,11 @@ h2 {
     grid-column: 2;
   }
 
-  .facts-grid, .facts-grid-three {
-    grid-template-columns: 1fr;
-  }
-
-  .facts-grid article, .facts-grid-three article {
-    border-right: 0;
-    border-bottom: 1px solid var(--ink);
-  }
-
-  .facts-grid-three article:nth-child(3) {
-    grid-column: auto;
-  }
-
-  .facts-grid article:last-child, .facts-grid-three article:last-child {
-    border-bottom: 0;
-  }
-
   .site-footer {
     display: block;
   }
 
   .site-footer p + p {
     margin-top: 8px;
-  }
-}
-
-@media (max-width: 700px) {
-  .facts-editorial {
-    grid-template-columns: 1fr;
-  }
-
-  .fact-item {
-    min-height: 190px;
   }
 }
