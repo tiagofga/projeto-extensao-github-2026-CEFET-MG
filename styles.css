@@ -178,11 +178,27 @@ h1 em {
     color .2s ease;
 }
 
+.button span {
+  display: inline-block;
+  transition: transform .22s ease;
+}
+
 .button:hover,
 .button:focus-visible {
   background: var(--accent);
-  border-color: var(--accent);
-  transform: translateY(-3px);
+  border-color: var(--ink);
+  box-shadow: 5px 5px 0 var(--ink);
+  transform: translate(-3px, -3px);
+}
+
+.button:hover span,
+.button:focus-visible span {
+  transform: translate(4px, -4px);
+}
+
+.button-down:hover span,
+.button-down:focus-visible span {
+  transform: translateY(4px);
 }
 
 .text-link,
@@ -190,6 +206,69 @@ h1 em {
   font-family: 'DM Mono', monospace;
   font-size: .72rem;
   text-underline-offset: 4px;
+  transition: color .2s ease;
+}
+
+.text-link:hover,
+.inline-link:hover {
+  color: var(--accent);
+}
+
+.text-link span,
+.inline-link span {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+
+.text-link:hover span {
+  transform: translateY(4px);
+}
+
+.inline-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.inline-link-text {
+  position: relative;
+}
+
+.inline-link-text::after {
+  position: absolute;
+  right: 0;
+  bottom: -3px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  content: '';
+  transform: scaleX(.25);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+
+.inline-link:hover,
+.inline-link:focus-visible {
+  color: var(--accent);
+}
+
+.inline-link:hover .inline-link-text::after,
+.inline-link:focus-visible .inline-link-text::after {
+  transform: scaleX(1);
+}
+
+.inline-link-arrow {
+  display: inline-block;
+  transition: transform .2s ease;
+}
+
+.inline-link-down:hover .inline-link-arrow,
+.inline-link-down:focus-visible .inline-link-arrow {
+  transform: translateY(4px);
 }
 
 /* GRAFO GIT DO HERO */
