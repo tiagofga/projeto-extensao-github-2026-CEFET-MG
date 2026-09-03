@@ -207,30 +207,54 @@ h2 {
 }
 
 .feature-card {
+  position: relative;
   min-height: 300px;
   padding: 26px;
+  overflow: hidden;
   border: 1px solid var(--ink);
-  transition: transform .2s ease;
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    filter .25s ease;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px) rotate(-.4deg);
+  transform: translateY(-7px);
+  box-shadow: 8px 8px 0 var(--ink);
+  filter: saturate(1.06);
 }
 
-.feature-card span, .module-number, .step-number {
+.feature-card span {
+  display: inline-block;
   font-family: 'DM Mono', monospace;
   font-size: .76rem;
+  transition: transform .25s ease;
+}
+
+.feature-card:hover span {
+  transform: translateX(8px);
 }
 
 .feature-card h3 {
-  margin: 94px 0 14px;
+  margin: 58px 0 14px;
   font-size: 1.6rem;
   letter-spacing: -.035em;
+  transition: transform .25s ease;
+}
+
+.feature-card:hover h3 {
+  transform: translateY(-3px);
 }
 
 .feature-card p {
+  max-width: 320px;
   margin-bottom: 0;
   line-height: 1.5;
+  transition: transform .25s ease;
+}
+
+.feature-card:hover p {
+  transform: translateY(-3px);
 }
 
 .card-yellow {
