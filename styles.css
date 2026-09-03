@@ -58,19 +58,38 @@ main,
 /* HEADER */
 
 .site-header {
-  padding: 26px 5vw 0;
+  position: sticky;
+  z-index: 1000;
+  top: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 18px 5vw 0;
+  background: transparent;
 }
 
 .navigation {
+  min-height: 72px;
+  padding: 0 22px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 32px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid var(--line);
+
+  background: rgba(23, 34, 31, .88);
+  border: 1px solid rgba(245, 241, 232, .12);
+  border-radius: 18px;
+
+  box-shadow:
+    0 10px 30px rgba(23, 34, 31, .12),
+    inset 0 1px 0 rgba(255, 255, 255, .04);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .brand {
+  color: var(--paper);
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: .02em;
@@ -79,11 +98,11 @@ main,
 }
 
 .brand span {
-  color: var(--accent);
+  color: var(--coral);
 }
 
 .brand small {
-  color: var(--muted);
+  color: #b8beb9;
   font-family: 'DM Mono', monospace;
   font-size: .68rem;
   font-weight: 400;
@@ -97,9 +116,10 @@ main,
 
 .nav-links a {
   position: relative;
-  padding-bottom: 5px;
+  padding: 27px 0 24px;
+  color: var(--paper);
   font-family: 'DM Mono', monospace;
-  font-size: .68rem;
+  font-size: .72rem;
   text-decoration: none;
   transition: color .2s ease, transform .2s ease;
 }
@@ -107,10 +127,10 @@ main,
 .nav-links a::after {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 18px;
   left: 0;
-  height: 1px;
-  background: var(--accent);
+  height: 2px;
+  background: var(--coral);
   content: '';
   transform: scaleX(0);
   transform-origin: left;
@@ -119,13 +139,17 @@ main,
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
-  color: var(--accent);
+  color: var(--coral);
   transform: translateY(-2px);
 }
 
 .nav-links a:hover::after,
 .nav-links a:focus-visible::after {
   transform: scaleX(1);
+}
+
+section {
+  scroll-margin-top: 90px;
 }
 
 /* HERO */
@@ -1004,7 +1028,7 @@ h2 {
 
 @media (max-width: 900px) {
   .navigation {
-    align-items: flex-start;
+    align-items: center;
   }
 
   .nav-links {
@@ -1080,23 +1104,36 @@ h2 {
 
 @media (max-width: 650px) {
   .site-header {
-    padding-top: 18px;
+    position: sticky;
+    top: 0;
   }
 
   .navigation {
     display: block;
+    min-height: auto;
+    padding-top: 16px;
+    padding-bottom: 14px;
   }
 
   .brand {
     display: inline-block;
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
 
   .nav-links {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, auto);
     justify-content: start;
-    gap: 12px 18px;
+    gap: 8px 18px;
+  }
+
+  .nav-links a {
+    padding: 4px 0 7px;
+    font-size: .66rem;
+  }
+
+  .nav-links a::after {
+    bottom: 0;
   }
 
   .hero {
