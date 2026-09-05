@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 110px;
 }
 
 body {
@@ -36,6 +37,38 @@ body::before {
   background-image: radial-gradient(#17221f .7px, transparent .7px);
   background-size: 18px 18px;
 }
+
+
+
+/*
+  Os gradientes são centrados exatamente nas duas bordas laterais
+  do container principal. Assim parecem luz/cor refletida pelo painel,
+  em vez de manchas independentes espalhadas pelo fundo.
+*/
+
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+  .container-reflection {
+    --container-edge: 5vw;
+  }
+
+  .reflection-layer {
+    background-size: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reflection-layer {
+    transition: none;
+  }
+}
+
 
 a {
   color: inherit;
@@ -61,14 +94,16 @@ main,
   position: sticky;
   z-index: 1000;
   top: 18px;
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 18px 5vw 0;
+  max-width: none;
+  margin: 0;
+  padding: 18px 0 0;
   background: transparent;
 }
 
 .navigation {
+  width: min(1180px, calc(100% - 10vw));
   min-height: 72px;
+  margin: 0 auto;
   padding: 0 22px;
 
   display: flex;
@@ -76,7 +111,7 @@ main,
   justify-content: space-between;
   gap: 32px;
 
-  background: rgba(23, 34, 31, .88);
+  background: rgba(48, 67, 60, .88);
   border: 1px solid rgba(245, 241, 232, .12);
   border-radius: 18px;
 
@@ -149,7 +184,7 @@ main,
 }
 
 section {
-  scroll-margin-top: 90px;
+  scroll-margin-top: 110px;
 }
 
 /* HERO */
@@ -480,6 +515,34 @@ h1 em {
   border-top: 1px solid var(--line);
 }
 
+.content-stack {
+  display: block;
+  max-width: 1180px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(23, 34, 31, .18);
+  border-radius: 26px;
+  box-shadow: 0 24px 70px rgba(23, 34, 31, .07);
+}
+
+.content-stack > .section {
+  margin: 0;
+  border: 0;
+}
+
+.content-stack > .section + .section {
+  border-top: 1px solid rgba(23, 34, 31, .18);
+}
+
+.content-stack .dark-section + .section {
+  border-top-color: rgba(245, 241, 232, .18);
+}
+
+.content-stack .about-section + .dark-section {
+  border-top-color: rgba(23, 34, 31, .18);
+}
+
+
 .section-heading {
   margin-bottom: 44px;
 }
@@ -507,6 +570,10 @@ h2 {
 }
 
 /* SOBRE */
+
+.about-section {
+  background: rgba(250, 247, 239, .72);
+}
 
 .feature-grid {
   display: grid;
@@ -730,11 +797,30 @@ h2 {
 
 /* INFORMAÇÕES RÁPIDAS */
 
+.facts-section {
+  background: rgba(250, 247, 239, .78);
+}
+
+.facts-panel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.facts-panel .section-heading {
+  max-width: 850px;
+  margin-bottom: 46px;
+}
+
 .facts-editorial {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
+  border-top: 1px solid rgba(23, 34, 31, .28);
+  border-left: 1px solid rgba(23, 34, 31, .28);
 }
 
 .fact-item {
@@ -745,8 +831,8 @@ h2 {
   grid-template-columns: 44px 1fr auto;
   gap: 18px;
   align-items: start;
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
+  border-right: 1px solid rgba(23, 34, 31, .28);
+  border-bottom: 1px solid rgba(23, 34, 31, .28);
   transition:
     background .25s ease,
     transform .25s ease;
@@ -810,7 +896,17 @@ h2 {
 /* TUTORIAL */
 
 .tutorial-section {
-  background: #faf7ef;
+  background: rgba(250, 247, 239, .88);
+}
+
+.tutorial-panel {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 }
 
 .notice-box {
@@ -847,7 +943,7 @@ h2 {
 
 .steps {
   position: relative;
-  border-top: 1px solid var(--ink);
+  border-top: 1px solid rgba(23, 34, 31, .28);
 }
 
 .step {
@@ -857,7 +953,7 @@ h2 {
   gap: 42px;
   align-items: center;
   padding: 52px 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(23, 34, 31, .18);
 }
 
 .step-copy {
@@ -929,8 +1025,8 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px dashed var(--muted);
-  background: #ece8de;
+  background: rgba(236, 232, 222, .72);
+  border: 1px dashed rgba(100, 107, 102, .65);
   color: var(--muted);
   text-align: center;
 }
@@ -1027,7 +1123,7 @@ h2 {
 /* RESPONSIVO */
 
 @media (max-width: 900px) {
-  .navigation {
+.navigation {
     align-items: center;
   }
 
@@ -1103,6 +1199,16 @@ h2 {
 }
 
 @media (max-width: 650px) {
+
+  .navigation {
+    width: calc(100% - 32px);
+  }
+
+
+.content-stack {
+    border-radius: 18px;
+  }
+
   .site-header {
     position: sticky;
     top: 0;
@@ -1170,12 +1276,7 @@ h2 {
     grid-template-columns: 54px 1fr;
     gap: 12px;
   }
-
-  .timeline-marker::after {
-    bottom: -45px;
-  }
-
-  .step-image {
+.step-image {
     margin-left: 0;
   }
 
@@ -1199,3 +1300,7 @@ h2 {
     margin-top: 8px;
   }
 }
+
+
+
+
