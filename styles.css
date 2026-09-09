@@ -38,38 +38,6 @@ body::before {
   background-size: 18px 18px;
 }
 
-
-
-/*
-  Os gradientes são centrados exatamente nas duas bordas laterais
-  do container principal. Assim parecem luz/cor refletida pelo painel,
-  em vez de manchas independentes espalhadas pelo fundo.
-*/
-
-
-
-
-
-
-
-
-@media (max-width: 900px) {
-  .container-reflection {
-    --container-edge: 5vw;
-  }
-
-  .reflection-layer {
-    background-size: auto;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .reflection-layer {
-    transition: none;
-  }
-}
-
-
 a {
   color: inherit;
 }
@@ -680,8 +648,8 @@ h2 {
 
 .course-card {
   position: relative;
-  min-height: 330px;
-  padding: 28px;
+  min-height: 250px;
+  padding: 24px;
   overflow: hidden;
   border: 1px solid rgba(245, 241, 232, .25);
   background: rgba(245, 241, 232, .025);
@@ -758,16 +726,16 @@ h2 {
 
 .course-card-content {
   position: absolute;
-  right: 28px;
-  bottom: 30px;
-  left: 28px;
+  right: 24px;
+  bottom: 55px;
+  left: 24px;
 }
 
 .course-card h3 {
   max-width: 450px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   color: var(--paper);
-  font-size: clamp(1.7rem, 3vw, 2.65rem);
+  font-size: clamp(1.55rem, 2.7vw, 2.35rem);
   line-height: 1;
   letter-spacing: -.045em;
 }
@@ -776,18 +744,16 @@ h2 {
   max-width: 500px;
   margin: 0;
   color: #cdd1ce;
-  line-height: 1.55;
+  font-size: .95rem;
+  line-height: 1.45;
 }
 
 .course-arrow {
   position: absolute;
-  right: 26px;
-  top: 69px;
+  right: 22px;
+  top: 58px;
   color: rgba(245, 241, 232, .2);
-  font-size: 2.2rem;
-  transition:
-    transform .25s ease,
-    color .25s ease;
+  font-size: 2rem;
 }
 
 .course-card:hover .course-arrow {
@@ -910,10 +876,11 @@ h2 {
 }
 
 .notice-box {
+  width: 100%;
   margin-bottom: 52px;
   padding: 22px 24px;
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 38px minmax(0, 1fr) max-content;
   gap: 20px;
   align-items: center;
   border: 1px solid var(--ink);
@@ -932,13 +899,27 @@ h2 {
 }
 
 .notice-box strong {
+  display: inline;
+}
+
+.notice-box p {
+  max-width: 760px;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.notice-box div {
+  min-width: 0;
+}
+
+.notice-box > div > strong:first-child {
   display: block;
   margin-bottom: 5px;
 }
 
-.notice-box p {
-  margin-bottom: 0;
-  line-height: 1.45;
+.notice-box > .inline-link {
+  justify-self: end;
+  white-space: nowrap;
 }
 
 .steps {
@@ -1081,6 +1062,37 @@ h2 {
   color: var(--paper);
 }
 
+
+
+.step-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+  border: 1px solid rgba(23, 34, 31, .22);
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(23, 34, 31, .07);
+}
+
+.help-actions {
+  display: flex;
+  min-width: 250px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+
+.help-actions .inline-link {
+  align-self: flex-start;
+}
+
+@media (max-width: 900px) {
+  .help-actions {
+    min-width: 0;
+  }
+}
+
 /* INSCRIÇÃO */
 
 .signup-section {
@@ -1123,7 +1135,7 @@ h2 {
 /* RESPONSIVO */
 
 @media (max-width: 900px) {
-.navigation {
+  .navigation {
     align-items: center;
   }
 
@@ -1164,7 +1176,7 @@ h2 {
   }
 
   .course-card {
-    min-height: 280px;
+    min-height: 240px;
   }
 
   .git-graph {
@@ -1199,13 +1211,17 @@ h2 {
 }
 
 @media (max-width: 650px) {
+  .step-image img {
+    max-height: none;
+  }
+
 
   .navigation {
     width: calc(100% - 32px);
   }
 
 
-.content-stack {
+  .content-stack {
     border-radius: 18px;
   }
 
@@ -1262,21 +1278,21 @@ h2 {
   }
 
   .course-card {
-    min-height: 300px;
-    padding: 22px;
+    min-height: 260px;
+    padding: 20px;
   }
 
   .course-card-content {
-    right: 22px;
-    bottom: 24px;
-    left: 22px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
   }
 
   .step-copy {
     grid-template-columns: 54px 1fr;
     gap: 12px;
   }
-.step-image {
+  .step-image {
     margin-left: 0;
   }
 
@@ -1285,11 +1301,14 @@ h2 {
   }
 
   .notice-box {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 38px minmax(0, 1fr);
+    padding: 20px;
   }
 
-  .notice-box .inline-link {
+  .notice-box > .inline-link {
     grid-column: 2;
+    justify-self: start;
+    white-space: normal;
   }
 
   .site-footer {
